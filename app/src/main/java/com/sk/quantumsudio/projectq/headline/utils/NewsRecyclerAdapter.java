@@ -36,6 +36,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
     }
 
     public NewsRecyclerAdapter(Context context, ArrayList<NewsItem> newsItemsList,int id){
+        Log.d(TAG, "NewsRecyclerAdapter: constructor");
         mContext = context;
         mNewsItemsList = newsItemsList;
         mId = id;     //0 for home fragments and 1 for bookmark fragment
@@ -44,6 +45,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
     @NonNull
     @Override
     public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        Log.d(TAG, "onCreateViewHolder: Element view of recycler list");
         View v;
         if (mId==0){
             v = LayoutInflater.from(mContext).inflate(R.layout.layout_newslist_element,viewGroup,false);
@@ -55,6 +57,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, final int i) {
+        Log.d(TAG, "onBindViewHolder: Setting up the values to the views");
         NewsItem currentItem = mNewsItemsList.get(i);  //stores the current item position
 
         String newsImageUrl = currentItem.getImageUrl();  //gets the value of respective fields
@@ -68,7 +71,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             holder.mNewsTitle.setText(newsTitle);
 
             try {           //tries to reformat the json date format into the familiar one
-                Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US).parse(newsTime);
+                Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault()).parse(newsTime);
                 if (printStandardDate(date) != null) {
                     holder.mNewsTime.setText(printStandardDate(date));
                 } else {

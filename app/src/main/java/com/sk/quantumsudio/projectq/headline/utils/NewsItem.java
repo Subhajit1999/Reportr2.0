@@ -1,9 +1,13 @@
 package com.sk.quantumsudio.projectq.headline.utils;
 
+import android.util.Log;
+
 public class NewsItem {
+    private static final String TAG = "NewsItem";
     private String mImageUrl,mNewsSource,mPublishTime,mNewsTitle,mContentUrl,mNewsDesc;
 
     public NewsItem(String ImageUrl, String NewsSource, String PublishTime, String NewsTitle, String contentUrl, String newsDesc){
+        Log.d(TAG, "NewsItem: Custom Type");
         mImageUrl = ImageUrl;
         mNewsSource = NewsSource;
         mPublishTime = PublishTime;

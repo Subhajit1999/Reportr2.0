@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
         android:weightSum="5"
         android:layout_margin="8dp">
 
@@ -47,8 +48,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
             android:id="@+id/news_image"
+            android:layout_weight="0.5"
             android:layout_gravity="center"
             android:src="@drawable/ic_remove"/>
     </LinearLayout>

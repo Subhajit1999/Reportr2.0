@@ -192,7 +192,6 @@ public class ContentActivity extends AppCompatActivity {
                     toolbar.setBackgroundColor(ContextCompat.getColor(mContext, android.R.color.transparent));
                     invalidateOptionsMenu();
                 }
-
             }
         });
     }

@@ -39,8 +39,7 @@ public class BookmarkFragment extends Fragment implements NewsRecyclerAdapter.On
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView: layout view just got created");
-        View v = inflater.inflate(R.layout.fragment_bookmark, container, false);
-        return v;
+        return inflater.inflate(R.layout.fragment_bookmark, container, false);
     }
 
     @Override

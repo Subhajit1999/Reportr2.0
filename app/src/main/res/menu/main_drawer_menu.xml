@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/bookmarks"
-        android:title="Saved News"
-        android:icon="@drawable/ic_fav_pressed" />
+    <group android:checkableBehavior="none">
+
+        <item android:id="@+id/bookmarks"
+            android:title="@string/saved_news"
+            android:icon="@drawable/ic_fav_pressed" />
+        <!-- more items -->
+
+        <item
+            android:id="@+id/menu_action"
+            android:title="@string/menu_actions">
+            <menu>
+                <item
+                    android:id="@+id/action_app_share"
+                    android:icon="@drawable/ic_share"
+                    android:title="@string/share_app"/>
+                <!-- more items -->
+                <item
+                    android:id="@+id/action_app_rate"
+                    android:icon="@drawable/ic_action_rate"
+                    android:title="@string/rate_app"/>
+                <item
+                    android:id="@+id/action_feedback"
+                    android:icon="@drawable/ic_action_feedback"
+                    android:title="@string/feedback"/>
+                <item
+                    android:id="@+id/action_app_about"
+                    android:icon="@drawable/ic_action_about"
+                    android:title="@string/about"/>
+            </menu>
+        </item>
+    </group>
 </menu>

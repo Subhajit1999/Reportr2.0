@@ -21,7 +21,9 @@ public class Preferences {
     public static String KEY_BOOKMARK_LIST = "MainActivity.SavedNewsList";
     public static String KEY_PREFERENCES = "Preferences.SavedNewsList";
     public static String KEY_SEARCH_URL = "MainFragment.searchUrl";
-    public static String KEY__FRAGMAIN_ID = "MainFragment.searchIdentifier";
-    public static String KEY__SEARCH_QUERY = "SearchNews.searchQuery";
-    public static String KEY__FRAGMENT_ID = "GeneralActivity.fragmentId";
+    public static String KEY_FRAGMAIN_ID = "MainFragment.searchIdentifier";
+    public static String KEY_SEARCH_QUERY = "SearchNews.searchQuery";
+    public static String KEY_FRAGMENT_ID = "GeneralActivity.fragmentId";
+    public static String KEY_WEBFRAG_URL = "AboutActivity.webFragment";
+    public static String KEY_WEBFRAG_TITLE = "AboutActivity.Title";
 }

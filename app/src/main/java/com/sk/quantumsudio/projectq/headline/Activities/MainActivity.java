@@ -12,6 +12,7 @@ import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
@@ -167,8 +168,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
 
                 Intent intent = new Intent(MainActivity.this,GeneralActivity.class);
-                intent.putExtra(Preferences.KEY__FRAGMENT_ID,1);
-                intent.putExtra(Preferences.KEY__SEARCH_QUERY,query);
+                intent.putExtra(Preferences.KEY_FRAGMENT_ID,1);
+                intent.putExtra(Preferences.KEY_SEARCH_QUERY,query);
                 startActivity(intent);
                 searchView.closeSearch();
                 return true;
@@ -208,10 +209,51 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.bookmarks:
-                        Toast.makeText(getApplicationContext(),"Item pressed",Toast.LENGTH_SHORT).show();
+                        //saved news fragment
                         Intent intent = new Intent(MainActivity.this,GeneralActivity.class);
-                        intent.putExtra(Preferences.KEY__FRAGMENT_ID,0);
+                        intent.putExtra(Preferences.KEY_FRAGMENT_ID,0);
                         startActivity(intent);
+                        break;
+                    case R.id.action_app_share:
+                        //share app intent
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.putExtra(Intent.EXTRA_TEXT, "Hey! Checkout this Awesome NewsFeed App \"Reportr\" to get latest news everyday across the World, among various categories.\n\n Download from Play Store: \n"+MainActivity.APP_STORE_URL);
+                        sendIntent.setType("text/plain");
+                        startActivity(Intent.createChooser(sendIntent, "Share App to..."));
+                        break;
+                    case R.id.action_app_rate:
+                        //rate app intent
+                        Uri uri = Uri.parse("market://details?id=" + getPackageName());
+                        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                        }
+                        try {
+                            startActivity(goToMarket);    //if the device has play store app installed
+                        } catch (Exception e) {   //if not
+                            startActivity(new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+                        }
+                        break;
+                    case R.id.action_feedback:
+                        //feedback mail intent
+                        Intent feedback = new Intent(Intent.ACTION_SEND);
+                        feedback.setData(Uri.parse("mailto:"));
+                        String[] emailTo = {"developercontact.subhajitkar@gmail.com"};
+                        feedback.putExtra(Intent.EXTRA_EMAIL,emailTo);
+                        feedback.putExtra(Intent.EXTRA_SUBJECT,"feedback related "+getString(R.string.app_name)+" Android app");
+                        feedback.putExtra(Intent.EXTRA_TEXT,"Replace this text to whatever you want.");
+                        feedback.setType("message/rfc822");
+                        startActivity(Intent.createChooser(feedback,"Send Feedback Email with..."));
+                        break;
+                    case R.id.action_app_about:
+                        //about page
+                        Intent aboutIntent = new Intent(MainActivity.this,AboutActivity.class);
+                        startActivity(aboutIntent);
                         break;
                 }
                 return true;

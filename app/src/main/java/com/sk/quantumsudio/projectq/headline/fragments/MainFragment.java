@@ -102,7 +102,7 @@ public class MainFragment extends Fragment implements NewsRecyclerAdapter.OnItem
         mNewsList = new ArrayList<>();  //getting the data from bundle
         Bundle bundle = getArguments();
         if (bundle != null){
-            identifier = bundle.getInt(Preferences.KEY__FRAGMAIN_ID);
+            identifier = bundle.getInt(Preferences.KEY_FRAGMAIN_ID);
             Url = bundle.getString(Preferences.KEY_SEARCH_URL);
         }
     }
