@@ -19,7 +19,7 @@ challenging, especially when you are just getting started.</string>
     <string name="menu_action_fav">favourite</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="description">\"Reportr\", a simple and useful NewsFeed app to deliver you latest news across the world from 50,000+ News sources of 65+ countries, provided by \"newsapi.org\". It also includes many features like Save News, Search News, Read News Detail and more.</string>
+    <string name="description">\"Reportr\", a simple and useful NewsFeed app to deliver you latest news across the world from 50,000+ News sources of 50+ countries, provided by \"newsapi.org\". It also includes many features like Save News, Search News, Read News Detail and more.</string>
     <string name="share_app">Share App</string>
     <string name="rate_app">Rate App</string>
     <string name="feedback">Feedback</string>

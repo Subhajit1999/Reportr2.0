@@ -87,6 +87,9 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
                         .error(R.drawable.image_error)
                         .fit().centerInside()
                         .into(holder.mNewsImage);
+            }else{
+                holder.mNewsImage.setImageResource(R.drawable.image_error);
+                holder.mNewsImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             }
         }else{  //when in bookmarkFragment
             holder.mNewsSource.setText(newsSource);

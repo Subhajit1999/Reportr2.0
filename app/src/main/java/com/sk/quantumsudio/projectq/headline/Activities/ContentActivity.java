@@ -206,6 +206,9 @@ public class ContentActivity extends AppCompatActivity {
                     .error(R.drawable.image_error)
                     .fit().centerInside()
                     .into(newsImage);
+        }else{
+            newsImage.setImageResource(R.drawable.image_error);
+            newsImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         }
 
         newsTitle.setText(title);
